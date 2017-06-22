@@ -73,6 +73,12 @@
     <div class = "container">
 
       <form  action="/output" method="GET"> <!-- specify the output method-->
+
+<div class="checkbox">
+
+    <label><input type="checkbox" id="Preload" name='Preload' value="True"> <font size="+1">Load a sample petition</font></label>
+        </div>
+
         <div class="form-group">
           <label for="Title"><font size="+1">Title:</font></label>
           <input type="text" class="form-control" id="Title" name='Title' placeholder="e.g. ">
@@ -96,7 +102,7 @@
         <br>
         <div class="form-group">
           <label for="Goal_No"><font size="+1">Your goal:</font></label>
-          <input type="text" id="Goal_No" name='Goal_No' placeholder="No. of supporters ">
+          <input type="text" id="Goal_No" name='Goal_No' placeholder="No. of supporters"> Default number 1000 </font>
         </div>
 
         <br>
