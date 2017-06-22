@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>About</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="../static/css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="input">Petition Predictor</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="input">Home</a></li>
+            <li><a href="about">About</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+
+    <!-- Page Header  -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('../static/img/about-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-14 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>About the Creator</h1>
+                        <hr class="small">
+                        <span class="subheading"><p>Hi, this is Fei.<p>
+<p>She is an enthusiastic data junkie, loving to look for insights from piles of data and think about good algorithms to optimize the world.<p>
+<p>She started out as a biologist, slowly got hooked with stats and CS, eventually dived into data science and saw no way out.<p> 
+<p>She is aiming to be the Best Data Scientist among biologists as well as the Best Biologist among data scientists.<p> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+    <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+    
+     <h2>About the Project</h2>
+     <br>
+
+    <iframe src="https://docs.google.com/presentation/d/1TZpLwTUXfirj6HKztsS6QE-qZmQQl4nezCIn-SnAybc/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  </div>
+</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+               <p>  As a biologist, I study how RNA molecules affect animal behavior through experiments in the lab. Unfortunately, most of time you cannot do such experiments on humans. I am fascinated with how you can measure and understand human behavior through numbers and data.<p>
+                <p>In my insight project, I decided to explore the treasure of the online petitions, hoping to 1) learn what people really care about and what people really need and 2) interpret and understand how people react to reading content (in this case, the petition) and optimize the way to draw people’s attention, ultimately to help people who want to change the world in a better ways.<p>
+                <p>Change.org is the largest host of online petitions, I scraped 5k finished petitions (including title, text, etc.), also combined with twitter sharing information. As a hypothetic data scientist at change.org, I would like to build a predictive model of popularity, to learn what people really care about, understand reader’s response and optimize the way to capture attentions of people.<p>
+                <p>The biggest risk of this project is that the text might not have enough predictive power. Before I dive in too deeply, I did a small trial on the data using logistic regression classifier. I set the cutoff at 5 corresponding to 100 thousand signatures. After classification, the two groups are nicely enriched in on their own end with a 79% accuracy. <p>
+                <p>But classification is not the best way to gauge success because each petitioner may have his own goal of success. However, the classification result gave me enough confidence to take it further: build a regression model to predict the actual supporter numbers. In addition, going through Logistic regression helps to identify the important features.<p> 
+                <p>There are some features I found are very informative to guide users. For example, you will get 6 times more supporters with images, 3 times more if you share on twitter and the optimal length of petition is 270 words. I used bag of words to vectorize the title and text. Along with other attributes, the feature space is in total 5017 dimensions.<p>
+                <p>Like most NLP problems, I suffered from the “curse of dimensionality” due to the small dataset. So Dimension reduction is essential for building the model. Instead of regular PCA, I used the modified version of PCA called enriched PCA. By putting weight to each variable according to its importance, you can emphasize more on the important variables. Followed by elastic net regression, I was able to achieve the mean square error of 0.71 for my model. Since I am using the log10 transformation as my response, this can be interpreted as less than 1 magnitude of my variation of number of signatures. <p>
+                <p>My final goal is to estimate the probability of success of a given goal. Using the property that the error of regression is normally distributed, I was able to calculate the chance to reach your goal, which is the right tail probability. 
+                I hope my project can help those who want to make change of the world in a better/more efficient way!<p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    
+   <!--  <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+ -->
+
+
+    <!--  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+  </body>
+</html>
