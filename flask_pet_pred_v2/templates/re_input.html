@@ -79,7 +79,7 @@
             
                 <div class="form-group">
           <label for="Title"><font size="+1">Title:</font></label>
-          <input type="text" class="form-control" id="Title" name='Title' placeholder="e.g. " value="{{ Title1 }}"
+          <input type="text" class="form-control" id="Title" name='Title' placeholder="Please enter 3 words at least " value="{{ Title1 }}"
           {% if request.method == 'GET' %}
           value="{{ request.args['Title'] }}"
           {% endif %}
@@ -89,8 +89,7 @@
           <br>
         <div class="form-group">
           <label for="Text"><font size="+1">Description:</font></label>
-          <textarea type="text" class="form-control" rows="10" id="Text" name='Text' placeholder="The optimal length of a petition is 270 words ">
-          {{ Text1 }}</textarea>
+          <textarea type="text" class="form-control" rows="10" id="Text" name='Text' placeholder="The optimal length of a petition is 270 words. Please enter 20 words at least. ">{{ Text1 }}</textarea>
 
         </div>
         <br>
