@@ -90,7 +90,7 @@ def petition_output():
     
 
     if not all(fields):
-        return render_template("re_input.html")
+        return render_template("re_input.html", Title1=Title1, Text1=Text1)
 
     df=data_clean(Title1,Text1,Goal_No1,Image1,Tweet1)
 
