@@ -70,8 +70,7 @@ def petition_output():
         n=random.randint(0,10)
         Title1 = sample_df.Title[n]
         Text1 = sample_df.Text[n]
-        Image1 = request.args.get('Image')=='True'
-        Tweet1 = request.args.get('Tweet')=='True'
+        return render_template("input_preload.html",  Title1=Title1, Text1=Text1)
     else:
 
         Title1 = request.args.get('Title')
@@ -90,12 +89,14 @@ def petition_output():
     
 
     if not all(fields):
-        return render_template("re_input.html", Title1=Title1, Text1=Text1)
+    	
+    	return render_template("re_input.html", Title1=Title1, Text1=Text1)
 
     df=data_clean(Title1,Text1,Goal_No1,Image1,Tweet1)
 
     if len(df.Title.str.split(" ")[0])<3 or len(df.Text.str.split(" ")[0])<15:
-        return render_template("re_input.html")
+    	
+    	return render_template("re_input.html")
 
     x_test_pca=data_vectorize(df)
     y_predict=data_predict(x_test_pca)
