@@ -103,7 +103,7 @@ def data_predict(x_test_pca):
 
 def get_prob(goal_No, y_predict):
 
-    prob=scipy.stats.norm(goal_No,0.88**0.5).cdf(y_predict)
+    prob=scipy.stats.norm(goal_No,0.71**0.5).cdf(y_predict)
     return prob[0]
 
 

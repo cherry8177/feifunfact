@@ -10,7 +10,7 @@ def plotly_prob(mu, log_goal):
     
     plotly.tools.set_credentials_file\
     (username='cherry8177', api_key='3FTZrZRMQSDYshs8rxJ7')
-    variance=0.88
+    variance=0.71
     x= np.linspace(mu-5*variance,mu+5*variance, 100)
     x_new=[10**w for w in x ]
     y = mlab.normpdf(x, mu, (variance ** (1/2)))
@@ -47,7 +47,7 @@ def plotly_prob(mu, log_goal):
     }
 
     layout = go.Layout(
-        title='Your Chace of Reaching the Goal Number',
+        title='Your Chance of Reaching the Goal Number',
         xaxis=dict(
             title='Supporter Number',
             type='log',
