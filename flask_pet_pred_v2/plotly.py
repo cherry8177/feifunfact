@@ -35,7 +35,7 @@ def plotly_prob(mu, log_goal):
       "x": x1_new,
       "y": y1,
       "fill": "tozeroy", 
-      "name": "Prob(Predction> Your Goal)", 
+      "name": "Prob(Prediction > Your Goal)", 
       "type": "scatter"
     }
     trace3 = {
@@ -47,7 +47,8 @@ def plotly_prob(mu, log_goal):
     }
 
     layout = go.Layout(
-        title='Your Chance of Reaching the Goal Number',
+        title='Your Chance to Reach the Goal',
+        font=dict(family='Courier New, monospace', size=24, color='#7f7f7f'),
         xaxis=dict(
             title='Supporter Number',
             type='log',
